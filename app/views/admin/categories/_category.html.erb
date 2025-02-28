@@ -1,10 +1,5 @@
-<div id="<%= dom_id category %>" class="my-5 space-y-5">
-  <div>
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= category.name %>
-  </div>
-  <div>
-    <strong class="block font-medium mb-1">Description:</strong>
-    <%= category.description %>
-  </div>
-</div>
+<tr id="<%= dom_id category %>" class="my-5 space-y-5">
+  <td><%= category.image.present? ? image_tag(category.image.variant(:thumb)) : image_tag("https://via.placeholder.com/50") %></td>
+  <td><%= link_to category.name, admin_category_path(category) %></td>
+  <td><%= category.description %></td>
+</tr>

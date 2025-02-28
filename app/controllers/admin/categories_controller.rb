@@ -3,7 +3,7 @@ class Admin::CategoriesController < ApplicationController
 
   # GET /admin/categories or /admin/categories.json
   def index
-    @admin_categories = Admin::Category.all
+    @admin_categories = Category.all
   end
 
   # GET /admin/categories/1 or /admin/categories/1.json
@@ -12,7 +12,7 @@ class Admin::CategoriesController < ApplicationController
 
   # GET /admin/categories/new
   def new
-    @admin_category = Admin::Category.new
+    @admin_category = Category.new
   end
 
   # GET /admin/categories/1/edit
@@ -21,11 +21,11 @@ class Admin::CategoriesController < ApplicationController
 
   # POST /admin/categories or /admin/categories.json
   def create
-    @admin_category = Admin::Category.new(admin_category_params)
+    @admin_category = Category.new(admin_category_params)
 
     respond_to do |format|
       if @admin_category.save
-        format.html { redirect_to @admin_category, notice: "Category was successfully created." }
+        format.html { redirect_to [:admin, @admin_category], notice: "Category was successfully created." }
         format.json { render :show, status: :created, location: @admin_category }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class Admin::CategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @admin_category.update(admin_category_params)
-        format.html { redirect_to @admin_category, notice: "Category was successfully updated." }
+        format.html { redirect_to [:admin, @admin_category], notice: "Category was successfully updated." }
         format.json { render :show, status: :ok, location: @admin_category }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -60,11 +60,11 @@ class Admin::CategoriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_category
-      @admin_category = Admin::Category.find(params.expect(:id))
+      @admin_category = Category.find(params.expect(:id))
     end
 
     # Only allow a list of trusted parameters through.
     def admin_category_params
-      params.expect(admin_category: [ :name, :description ])
+      params.expect(category: [ :name, :description, :image ])
     end
 end

@@ -1,20 +1,20 @@
-<% content_for :title, "Showing category" %>
-
 <div class="md:w-2/3 w-full">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
   <% end %>
 
   <h1 class="font-bold text-4xl">Showing category</h1>
-
+  <br/>
   <div class="d-flex gap-2">
     <h3 style="color: #3498db;">Name:</h3>
     <h3><%= @admin_category.name %></h3>
   </div>
+  <br/>
   <div class="d-flex gap-2">
     <h3 style="color: #3498db;">Description:</h3>
     <h3><%= @admin_category.description %></h3>
   </div>
+  <br/>
   <div class="d-flex gap-2">
   <%= link_to "Edit this category", edit_admin_category_path(@admin_category), class:"btn btn-secondary" %> 
   <%= button_to "Destroy this category", admin_category_path(@admin_category), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>

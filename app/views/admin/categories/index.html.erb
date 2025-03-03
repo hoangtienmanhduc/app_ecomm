@@ -1,11 +1,9 @@
+<p style="color: green"><%= notice %></p>
 <% content_for :title, "Categories" %>
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
-  <% end %>
-
+  
   <div class="flex justify-between items-center">
   <h1 class="font-extrabold text-5xl text-gray-900">Categories</h1>
-    <%= link_to "New category", new_admin_category_path, class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white block font-medium" %>
+    <%= link_to "New category", new_admin_category_path, class: "btn btn-primary btn-lg" %>
   </div>
 
 <table class="table table-striped">
@@ -27,6 +25,6 @@
     <% else %>
       <p class="text-center my-10">No categories found.</p>
     <% end %>
+  </div>
   </tbody>
 </table>
-</div>

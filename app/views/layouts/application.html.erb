@@ -27,39 +27,8 @@
   </head>
 
   <body>
-    <main class="flex w-full">
-      <nav class="flex ">
-        <div class="w-64 p-4 h-screen bg-gray-600 sticky top-0">
-        <div class="flex items-center gap-3">
-          <%= image_tag "logo.png", class: "w-16 h-16 object-contain" %>
-          <h5 class="text-lg text-white font-bold hidden md:block">Ecomm Admin</h5>
-        </div>
-          <ul class="nav flex-column">
-            <li class="nav-item flex items-center space-x-2 hover:bg-gray-700 rounded-md px-3 py-2">
-              <%= icon('fa-solid', 'gauge-high', class: 'w-5 h-5 text-white') %>
-              <%= link_to "Dashboard", admin_path, class: "nav-link text-white" %>
-            </li>
-            
-            <li class="nav-item flex items-center space-x-2 hover:bg-gray-700 rounded-md px-3 py-2">
-              <%= icon('fa-solid', 'cart-shopping', class: 'w-5 h-5 text-white') %>
-              <%= link_to "Product", admin_path, class: "nav-link text-white" %>
-            </li>
-            
-            <li class="nav-item flex items-center space-x-2 hover:bg-gray-700 rounded-md px-3 py-2">
-              <%= icon('fa-solid', 'list', class: 'w-5 h-5 text-white') %>
-              <%= link_to "Categories", admin_categories_path, class: "nav-link text-white" %>
-            </li>
-            
-            <li class="nav-item flex items-center space-x-2 hover:bg-gray-700 rounded-md px-3 py-2">
-              <%= icon('fa-solid', 'truck-fast', class: 'w-5 h-5 text-white') %>
-              <%= link_to "Orders", admin_path, class: "nav-link text-white" %>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <div class="container" >
+      <div class="container" style="height: 695px; overflow: auto">
         <%= yield %>
       </div>
-    </main>
   </body>
 </html>

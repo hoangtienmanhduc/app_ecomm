@@ -1,27 +1,11 @@
-<div id="<%= dom_id product %>">
-  <p>
-    <strong>Name:</strong>
-    <%= product.name %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= product.description %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= product.price %>
-  </p>
-
-  <p>
-    <strong>Category:</strong>
-    <%= product.category_id %>
-  </p>
-
-  <p>
-    <strong>Active:</strong>
-    <%= product.active %>
-  </p>
-
+<tr id="<%= dom_id product %>" class="my-5 space-y-5">
+  <td>
+    <div style="display: flex; width: 50px; height: 50px;">
+      <%= product.images.any? ? image_tag(product.images.first) : image_tag("https://www.google.com/url?sa=i&url=https%3A%2F%2Ftinyjpg.com%2F&psig=AOvVaw3QcT6NE63t-HxWW9K8hsui&ust=1740845071793000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCMjepbPf5osDFQAAAAAdAAAAABAE") %>
+    </div>
+  </td>
+  <td><%= link_to product.name, admin_product_path(product) %></td>
+  <td><%= product.description %></td>
+  <td>$<%= (product.price/100.0).to_s %></td>
+  </tr>
 </div>

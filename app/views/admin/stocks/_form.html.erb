@@ -1,4 +1,4 @@
-<%= form_with(model: admin_stock) do |form| %>
+<%= form_with(model: [:admin, @product, admin_stock]) do |form| %>
   <% if admin_stock.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(admin_stock.errors.count, "error") %> prohibited this admin_stock from being saved:</h2>
@@ -11,22 +11,17 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :size, style: "display: block" %>
-    <%= form.text_field :size %>
+  <div class="my-5">
+    <%= form.label :size %>
+    <%= form.text_field :size, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": admin_stock.errors[:size].none?, "border-red-400 focus:outline-red-600": admin_stock.errors[:size].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :amount %>
+    <%= form.number_field :amount, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": admin_stock.errors[:amount].none?, "border-red-400 focus:outline-red-600": admin_stock.errors[:amount].any?}] %>
   </div>
 
   <div>
-    <%= form.label :amount, style: "display: block" %>
-    <%= form.number_field :amount %>
-  </div>
-
-  <div>
-    <%= form.label :product_id, style: "display: block" %>
-    <%= form.text_field :product_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer"%>
   </div>
 <% end %>

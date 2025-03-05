@@ -50,7 +50,9 @@
   </div>
 
   <div class="my-5">
-    <%= link_to "Product Stock" admin_product_stocks_path(admin_product), class: "underline" %>
+  <% unless admin_product.new_record? %>
+    <%= link_to "Product Stock", admin_product_stocks_path(@admin_product), class: "underline" %>
+<% end %>
   </div>
 
   <div>

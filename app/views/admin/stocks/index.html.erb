@@ -1,16 +1,27 @@
 <p style="color: green"><%= notice %></p>
-
 <% content_for :title, "Stocks" %>
 
-<h1>Stocks</h1>
+<div class="flex justify-between items-center">
+  <h1>Stocks</h1>
+  <%= link_to "New stock", new_admin_product_stock_path, class: "btn btn-primary btn-lg" %>
+</div>
 
-<div id="admin_stocks">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Size</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Product</th>
+    </tr>
+  </thead>
+  <tbody>
+
+<div id="admin_stocks" class="min-w-full divide-y divide-gray-200 space-y-5">
   <% @admin_stocks.each do |admin_stock| %>
-    <%= render admin_stock %>
-    <p>
-      <%= link_to "Show this stock", admin_stock %>
-    </p>
+    <div class="flex justify-between items-center">
+      <%= render admin_stock %>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New stock", new_admin_stock_path %>
+

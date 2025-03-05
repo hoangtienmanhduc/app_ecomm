@@ -1,17 +1,6 @@
-<div id="<%= dom_id stock %>">
-  <p>
-    <strong>Size:</strong>
-    <%= stock.size %>
-  </p>
+<tr id="<%= dom_id stock %> " class="my-5 space-y-5">
+  <td><%= link_to stock.size, admin_product_stock_path(stock.product_id, stock.id) %></td>
+  <td><%= stock.amount %></td>
+  <td><%= stock.product_id %></td>
+</tr>
 
-  <p>
-    <strong>Amount:</strong>
-    <%= stock.amount %>
-  </p>
-
-  <p>
-    <strong>Product:</strong>
-    <%= stock.product_id %>
-  </p>
-
-</div>

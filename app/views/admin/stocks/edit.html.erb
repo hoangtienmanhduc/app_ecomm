@@ -7,6 +7,6 @@
 <br>
 
 <div>
-  <%= link_to "Show this stock", @admin_stock %> |
-  <%= link_to "Back to stocks", admin_stocks_path %>
+  <%= link_to "Show this stock", [:admin, @product, @admin_stock] %> |
+  <%= link_to "Back to stocks", admin_product_stocks_path %>
 </div>

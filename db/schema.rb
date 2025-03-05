@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_03_133717) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_03_142500) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -37,15 +37,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_03_133717) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
-  end
-
-  create_table "admin_stocks", force: :cascade do |t|
-    t.string "size"
-    t.integer "amount"
-    t.integer "product_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_admin_stocks_on_product_id"
   end
 
   create_table "admins", force: :cascade do |t|
@@ -78,8 +69,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_03_133717) do
     t.index ["category_id"], name: "index_admin_products_on_category_id"
   end
 
+  create_table "stocks", force: :cascade do |t|
+    t.string "size"
+    t.integer "amount"
+    t.integer "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_stocks_on_product_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "admin_stocks", "products"
   add_foreign_key "products", "categories"
+  add_foreign_key "stocks", "products"
 end

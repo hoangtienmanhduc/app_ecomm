@@ -8,6 +8,7 @@ class Admin::ProductsController < AdminController
 
   # GET /admin/products/1 or /admin/products/1.json
   def show
+    @product = Product.find(params[:id])
   end
 
   # GET /admin/products/new
@@ -17,6 +18,7 @@ class Admin::ProductsController < AdminController
 
   # GET /admin/products/1/edit
   def edit
+    @product = Product.find(params[:id])
   end
 
   # POST /admin/products or /admin/products.json

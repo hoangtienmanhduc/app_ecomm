@@ -2,7 +2,6 @@
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
   <% end %>
-
   <h1 class="font-bold text-4xl">Showing produc</h1>
   <br/>
   <div class="d-flex gap-2">
@@ -31,9 +30,8 @@
   </div>
   <br/>
   <div class="d-flex gap-2">
-  <%= link_to "Edit this product", edit_admin_product_path(@admin_product), class:"btn btn-secondary" %> 
-  <%= button_to "Destroy this product", admin_category_path(@admin_product), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
-  <%= link_to "Back to product", admin_products_path, class:"btn btn-dark" %>
-    </div>
+    <%= link_to "Edit this product", edit_admin_product_path(@admin_product), class:"btn btn-secondary" %> 
+    <%= link_to "Back to product", admin_products_path, class:"btn btn-dark" %>
+    <%= button_to "Destroy this product", admin_product_path(@admin_product), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
   </div>
 </div>

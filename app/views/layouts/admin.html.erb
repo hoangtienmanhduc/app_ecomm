@@ -54,7 +54,12 @@
             
             <li class="nav-item flex items-center space-x-2 hover:bg-gray-700 rounded-md px-3 py-2">
               <%= icon('fa-solid', 'truck-fast', class: 'w-5 h-5 text-white') %>
-              <%= link_to "Orders", admin_path, class: "nav-link text-white" %>
+              <%= link_to "Orders", admin_orders_path, class: "nav-link text-white" %>
+            </li>
+
+            <li class="nav-item flex items-center space-x-2 hover:bg-gray-700 rounded-md px-3 py-2">
+              <%= icon('fa-solid', 'sign-out', class: 'w-5 h-5 text-white') %>
+              <%= link_to "Sign out", destroy_admin_session_path, data: {"turbo-method": :delete, "turbo-confirm": "Are you sure you want to sign out?"} , class: "nav-link text-white" %>
             </li>
           </ul>
         </div>

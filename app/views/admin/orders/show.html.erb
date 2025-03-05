@@ -1,0 +1,38 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 class="font-bold text-4xl">Showing Order</h1>
+<br/>
+<div class="d-flex gap-2">
+  <h3 style="color: #3498db;">Customer Email:</h3>
+  <h3><%= @admin_order.customer_email %></h3>
+</div>
+<br/>
+<div class="d-flex gap-2">
+  <h3 style="color: #3498db;">Fulfilled:</h3>
+  <h3><%= @admin_order.fulfilled %></h3>
+</div>
+<br/>
+<div class="d-flex gap-2">
+  <h3 style="color: #3498db;">Fulfilled:</h3>
+  <h3><%= @admin_order.total %></h3>
+</div>
+<br/>
+<div class="d-flex gap-2">
+  <h3 style="color: #3498db;">Fulfilled:</h3>
+  <h3><%= @admin_order.address %></h3>
+</div>
+<br/>
+
+<% if @admin_order.order_products.any? %>
+  <h3 style="color: #3498db;">HEehe:</h3>
+  <% @admin_order.order_products.each do |op| %>
+    <%= op.product.name %>
+    <%= op.size %>
+    <%= op.quantity %>
+  <% end %>
+<% end %>
+<div class="d-flex gap-2">
+  <%= link_to "Edit this order", edit_admin_order_path(@admin_order), class:"btn btn-secondary" %> 
+  <%= link_to "Back to orders", admin_orders_path, class:"btn btn-dark" %>
+  <%= button_to "Destroy this order", admin_order_path(@admin_order), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+</div>

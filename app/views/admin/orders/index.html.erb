@@ -1,0 +1,45 @@
+<p style="color: green"><%= notice %></p>
+<% content_for :title, "Orders" %>
+
+<div class="flex justify-between items-center">
+  <h1 class="font-extrabold text-5xl text-gray-900">Orders</h1>
+  <%= link_to "New order", new_admin_order_path, class: "btn btn-primary btn-lg" %>
+</div>
+<h3>Unfulfilled Orders</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Order ID</th>
+      <th scope="col">Customer Email</th>
+      <th scope="col">Total</th>
+      <th scope="col">Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <div id="admin_orders"  class="min-w-full divide-y divide-gray-200 space-y-5">
+      <% @not_fulfilled_orders.each do |admin_order| %>
+        <%= render admin_order %>
+      <% end %>
+    </div>
+  </tbody>
+</table>
+</br>
+<h3>Fulfilled Orders</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Order ID</th>
+      <th scope="col">Customer Email</th>
+      <th scope="col">Total</th>
+      <th scope="col">Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <div id="admin_orders"  class="min-w-full divide-y divide-gray-200 space-y-5">
+      <% @fulfilled_orders.each do |admin_order| %>
+        <%= render admin_order %>
+      <% end %>
+    </div>
+  </tbody>
+</table>
+

@@ -15,13 +15,14 @@
     </tr>
   </thead>
   <tbody>
-
-<div id="admin_stocks" class="min-w-full divide-y divide-gray-200 space-y-5">
-  <% @admin_stocks.each do |admin_stock| %>
-    <div class="flex justify-between items-center">
-      <%= render admin_stock %>
+    <div id="admin_stocks" class="min-w-full divide-y divide-gray-200 space-y-5">
+      <% @admin_stocks.each do |admin_stock| %>
+        <div class="flex justify-between items-center">
+          <%= render admin_stock %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-</div>
+  </tbody>
+</table>
 
 

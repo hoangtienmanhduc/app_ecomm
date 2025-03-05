@@ -2,13 +2,11 @@ Rails.application.routes.draw do
   devise_for :admins
   
   namespace :admin do
-    namespace :product do
-      resources :orders
-    end
     resources :products do
       resources :stocks
     end
     resources :categories
+    resources :orders
   end
 
   # get "home/index"

@@ -27,8 +27,10 @@
   </head>
 
   <body>
-      <div class="container" style="height: 695px; overflow: auto">
+      <%= render "shared/navbar" %>
+      <main class="container" style="max-width: 100%; margin-top:96px;">
         <%= yield %>
-      </div>
+      </main>
+      <%= render "shared/footer" %>
   </body>
 </html>

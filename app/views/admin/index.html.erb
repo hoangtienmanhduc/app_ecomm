@@ -1,1 +1,63 @@
-<h1>Admin#index</h1>
+<h1>Admin Home</h1>
+<div>
+  <h3 class="fw-medium mb-4">Daily Stats</h3>
+  <div class="row">
+    <div class="d-flex justify-content-between"> 
+    <div class="card bg-gradient-gray text-white shadow-lg border-0" style="background: linear-gradient(to right, #6c757d 50%, #ffffff 100%);">
+        <div class="card-body">
+          <h5 class="card-title fw-bold">Revenue </h5>
+          <p class="card-text">$<%= @quick_stats[:revenue] ? (@quick_stats[:revenue] / 100.0).to_s : "0" %></p>
+        </div>
+      </div>
+      <div class="card bg-gradient-gray text-white shadow-lg border-0" style="background: linear-gradient(to right, #6c757d 50%, #ffffff 100%);">
+        <div class="card-body">
+          <h5 class="card-title fw-bold">Total Sales </h5>
+          <p class="card-text"><%= @quick_stats[:sales] ? (@quick_stats[:sales] / 100.0).to_s : "0" %></p>
+        </div>
+      </div>
+      <div class="card bg-gradient-gray text-white shadow-lg border-0" style="background: linear-gradient(to right, #6c757d 50%, #ffffff 100%);">
+        <div class="card-body">
+          <h5 class="card-title fw-bold">Average Sales </h5>
+          <p class="card-text">$<%= @quick_stats[:avg_sale] ? (@quick_stats[:avg_sale] / 100.0).to_s : "0" %></p>
+        </div>
+      </div>
+      <div class="card bg-gradient-gray text-white shadow-lg border-0" style="background: linear-gradient(to right, #6c757d 50%, #ffffff 100%);">
+        <div class="card-body">
+          <h5 class="card-title fw-bold">Items/Sale </h5>
+          <p class="card-text">$<%= @quick_stats[:per_sale].to_i %></p>
+        </div>
+      </div>
+    </div>
+    <div class="my-8 w-full">
+        </br>
+        <h3 class="text-2xl text-gray-800 font-medium mb-4">Revenue</h3>
+        <div data-controller="dashboard" data-dashboard-revenue-value="<%= @revenue_by_day.to_json %>">
+            <canvas id="revenueChart" height="100"></canvas>
+        </div>
+    </div>
+    <div class="my-8 w-full">
+        </br>
+        <h3 class="text-2xl text-gray-800 font-medium mb-4">Recent Unfulfilled Orders</h3>
+        <table class="table table-striped w-full">
+            <thead>
+                <tr>
+                <th scope="col">Order ID</th>
+                <th scope="col">Customer</th>
+                <th scope="col">Date</th>
+                <th scope="col">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @orders.each do |order| %>
+                    <tr>
+                        <td><%= link_to order.id, admin_order_path(order) %></td>
+                        <td><%= order.customer_email %></td>
+                        <td><%= order.created_at.strftime("%B %d, %Y %H:%M") %></td>
+                        <td><%= (order.total/100.0).to_s %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+            </table>
+    </div>
+  </div>
+</div>

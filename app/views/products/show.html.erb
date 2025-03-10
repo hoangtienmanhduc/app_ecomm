@@ -9,7 +9,7 @@
         <% end %>
     </div>
 
-    <div data-controller="products" data-products-product-value="<%= @product.to_json %>" class="d-flex flex-column align-items-start" style="max-width: 24rem; background-color:red">
+    <div data-controller="products" data-products-product-value="<%= @product.to_json %>" class="d-flex flex-column align-items-start" style="max-width: 24rem;">
         <h1 class="fw-bold text-uppercase fs-2">
             <%= @product.name %>
         </h1>
@@ -19,14 +19,13 @@
         <p class="fs-5 text-secondary">
             <%= @product.description %>
         </p>
-
         <div class="my-3">
             <p class="text-uppercase fw-bold fs-5">
                 Size
             </p>
             <% @product.stocks.each do |stock| %>
                 <% if stock.amount > 0 %>
-                    <button data-action="click->products#selectSize" value="<%= stock.size %>" 
+                    <button data-action="click->products#selectSize" value="<%= stock.size %>" value="<%= stock.size %>" 
                         class="btn btn-outline-dark me-2 mb-2">
                         <%= stock.size %>
                     </button>

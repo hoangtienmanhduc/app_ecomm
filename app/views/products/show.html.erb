@@ -1,0 +1,46 @@
+<h1 class="text-center my-4">Product Show Page</h1>
+
+<div class="d-flex" style="width:100%;">
+    <div class="d-flex flex-wrap" style="width:60%">
+        <% @product.images.each do |image| %>
+            <div class="d-flex justify-content-center align-items-center" style="width: 520px; height: 520px; margin-top:10px; margin-left:10px;">
+                <%= image_tag image, style: "width: 500px; height:500px" %>
+            </div>
+        <% end %>
+    </div>
+
+    <div data-controller="products" data-products-product-value="<%= @product.to_json %>" class="d-flex flex-column align-items-start" style="max-width: 24rem; background-color:red">
+        <h1 class="fw-bold text-uppercase fs-2">
+            <%= @product.name %>
+        </h1>
+        <p class="fs-4 mt-3 text-danger">
+            $<%= (@product.price / 100.0).to_s %>
+        </p>
+        <p class="fs-5 text-secondary">
+            <%= @product.description %>
+        </p>
+
+        <div class="my-3">
+            <p class="text-uppercase fw-bold fs-5">
+                Size
+            </p>
+            <% @product.stocks.each do |stock| %>
+                <% if stock.amount > 0 %>
+                    <button data-action="click->products#selectSize" value="<%= stock.size %>" 
+                        class="btn btn-outline-dark me-2 mb-2">
+                        <%= stock.size %>
+                    </button>
+                <% else %>
+                    <button disabled value="<%= stock.size %>" 
+                        class="btn btn-outline-dark disabled me-2 mb-2">
+                        <%= stock.size %>
+                    </button>
+                <% end %>
+            <% end %>
+        </div>
+        <div id="selected-size"></div>
+        <button data-action="click->products#addToCart" class="btn btn-secondary btn-lg mt-3">
+            Add to Cart
+        </button>
+    </div>
+</div>

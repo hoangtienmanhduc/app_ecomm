@@ -7,9 +7,10 @@
     "lib": "lib",
     "test": "test"
   },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "",
+    "build:css": ""
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/hoangtienmanhduc/app_ecomm/issues"
   },
-  "homepage": "https://github.com/hoangtienmanhduc/app_ecomm#readme"
+  "homepage": "https://github.com/hoangtienmanhduc/app_ecomm#readme",
+  "dependencies": {
+    "esbuild": "^0.25.1"
+  }
 }

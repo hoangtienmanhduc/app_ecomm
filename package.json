@@ -23,6 +23,5 @@
   },
   "homepage": "https://github.com/hoangtienmanhduc/app_ecomm#readme",
   "dependencies": {
-    "esbuild": "^0.25.1"
   }
 }

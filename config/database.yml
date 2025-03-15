@@ -21,8 +21,9 @@ default: &default
 
 
 development:
-  <<: *default
-  database: ecomm_development
+  adapter: sqlite3
+  encoding: utf8
+  database: ecomm_test
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.

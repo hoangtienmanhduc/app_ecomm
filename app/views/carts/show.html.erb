@@ -1,1 +1,13 @@
-<h1>Cart Page</h1>
+<div class="container" style="max-width: 100%">
+    <h1>Cart Page</h1>
+    <div id = "errorContainer"></div>
+    <div data-controller="cart">
+        <div class="mt-3 fw-medium" id="total"></div>
+        <button class="btn btn-secondary" data-action="click->cart#checkout">
+            Checkout
+        </button>
+        <button class="btn btn-secondary" data-action="click->cart#clear">
+            Clear Cart
+        </button>
+    </div>
+</div>

@@ -17,7 +17,7 @@ export default class extends Controller {
             id: this.productValue.id,
             name: this.productValue.name,
             price: this.productValue.price,
-            size: this.productValue.price,
+            size: this.sizeValue,
             quantity:1
           })
         }
@@ -28,7 +28,7 @@ export default class extends Controller {
           id: this.productValue.id,
           name: this.productValue.name,
           price: this.productValue.price,
-          size: this.productValue.price,
+          size: this.sizeValue,
           quantity:1
         })
         localStorage.setItem("cart", JSON.stringify(cartArray))

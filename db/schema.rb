@@ -86,7 +86,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_05_092648) do
     t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_admin_products_on_category_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
   end
 
   create_table "stocks", force: :cascade do |t|

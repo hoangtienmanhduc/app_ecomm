@@ -71,4 +71,4 @@ group :test do
 end
 
 
-gem "stripe", "~> 13.5"
+gem "stripe", "~> 14.0"
